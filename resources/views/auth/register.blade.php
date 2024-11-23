@@ -7,7 +7,7 @@
     
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<div class="min-h-screen flex items-center justify-center bg-gray-100">
+<div class="min-h-screen flex items-center justify-center bg-pink-600">
   <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
     <h2 class="text-2xl font-semibold text-center mb-6">Sign Up</h2>
     <form action="#" method="POST">
