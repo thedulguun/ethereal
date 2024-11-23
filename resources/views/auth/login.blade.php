@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     
-    <script src="https://cdn.tailwindcss.com"></script>
+    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
 <body class="bg-gray-100 h-screen flex items-center justify-center">
 
