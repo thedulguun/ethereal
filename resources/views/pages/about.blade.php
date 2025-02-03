@@ -28,7 +28,7 @@
       <div class="container-block form-wrapper">
         <div class="mob-text">
           <p class="text-blk contactus-head">
-            Get in Touch
+           GET IN ABOTTUUUUUUU
           </p>
           <p class="text-blk contactus-subhead">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Felis diam lectus sapien.
