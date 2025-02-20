@@ -1,7 +1,7 @@
 <?php
-use App\Models\ContactMessage;
-use Illuminate\Http\Request;
-// use Illuminate\Routing\Route;
+
+use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 Route::get('/', function() {
     return view('welcome');
@@ -14,7 +14,9 @@ Route::get('/about', function () {
 Route::get('/contact', function () {
     return view('auth.contact');
 })->name('contact');
+
 Route::get('/productpage', [App\Http\Controllers\HomeController::class, 'products']);
+
 Route::get('/product1', function () {
     return view('pages.product1');
 })->name('product1');

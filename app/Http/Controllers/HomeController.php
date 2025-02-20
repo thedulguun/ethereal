@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -12,12 +14,17 @@ class HomeController extends Controller
         return view('home');
     }
 
+    public function products()
+    {
+        return view('pages.productpage');
+    }
+
     public function product()
     {
         return view('pages.product1');
     }
 
-    public function saveMovie(Request $request)
+    public function saveProduct(Request $request)
     {
         if ($request->file('image')) {
             $file = $request->file('image');
@@ -25,7 +32,7 @@ class HomeController extends Controller
             $file->move(public_path('images'), $fileName);
            
             // return response()->json(['path' => Storage::url($path)], 200);
-            DB::table('movie')->insert([
+            DB::table('products')->insert([
                 'title' => $request->title,
                 'description' => $request->desc,
                 'image' => $fileName,

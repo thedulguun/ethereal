@@ -4,7 +4,7 @@
 
 @include('pages.components.header')
 
-<section id="product" class="portfolio-section py-16 px-4">
+<section id="products" class="portfolio-section py-16 px-4">
     <div class="container mx-auto">
         <div class="text-center mb-12">
             <h2 class="text-4xl font-bold mb-4">a</h2>
@@ -25,8 +25,8 @@
                         class="absolute top-0 left-0 right-0 bottom-0 bg-gradient-to-r from-indigo-500 to-pink-500 opacity-0 transition duration-300 ease-in-out group-hover:opacity-70">
                     </div>
                     <div class="p-4 flex flex-col items-center justify-between relative z-10">
-                        <h3 class="text-lg font-medium text-txt group-hover:text-gray-dark">Awesome Project 1</h3>
-                        <span class="text-sm font-bold text-pink-500 group-hover:text-indigo-500">App development</span>
+                        <h3 class="text-lg font-medium text-txt group-hover:text-gray-dark">1</h3>
+                        <span class="text-sm font-bold text-pink-500 group-hover:text-indigo-500">q</span>
                     </div>
                 </a>
             </div>
@@ -37,8 +37,8 @@
                         class="absolute top-0 left-0 right-0 bottom-0 bg-gradient-to-r from-indigo-500 to-pink-500 opacity-0 transition duration-300 ease-in-out group-hover:opacity-70">
                     </div>
                     <div class="p-4 flex flex-col items-center justify-between relative z-10">
-                        <h3 class="text-lg font-medium text-txt group-hover:text-gray-dark">Awesome Project 2</h3>
-                        <span class="text-sm font-bold text-pink-500 group-hover:text-indigo-500">Branding</span>
+                        <h3 class="text-lg font-medium text-txt group-hover:text-gray-dark"> 2</h3>
+                        <span class="text-sm font-bold text-pink-500 group-hover:text-indigo-500">g</span>
                     </div>
                 </a>
             </div>
@@ -49,9 +49,8 @@
                         class="absolute top-0 left-0 right-0 bottom-0 bg-gradient-to-r from-indigo-500 to-pink-500 opacity-0 transition duration-300 ease-in-out group-hover:opacity-70">
                     </div>
                     <div class="p-4 flex flex-col items-center justify-between relative z-10">
-                        <h3 class="text-lg font-medium text-txt group-hover:text-gray-dark">Awesome Project 3</h3>
-                        <span class="text-sm font-bold text-pink-500 group-hover:text-indigo-500">Web Design,
-                            Branding</span>
+                        <h3 class="text-lg font-medium text-txt group-hover:text-gray-dark">3</h3>
+                        <span class="text-sm font-bold text-pink-500 group-hover:text-indigo-500">g</span>
                     </div>
                 </a>
             </div>
@@ -62,9 +61,8 @@
                         class="absolute top-0 left-0 right-0 bottom-0 bg-gradient-to-r from-indigo-500 to-pink-500 opacity-0 transition duration-300 ease-in-out group-hover:opacity-70">
                     </div>
                     <div class="p-4 flex flex-col items-center justify-between relative z-10">
-                        <h3 class="text-lg font-medium text-txt group-hover:text-gray-dark">Awesome Project 4</h3>
-                        <span class="text-sm font-bold text-pink-500 group-hover:text-indigo-500">Web Design,
-                            Branding</span>
+                        <h3 class="text-lg font-medium text-txt group-hover:text-gray-dark"> 4</h3>
+                        <span class="text-sm font-bold text-pink-500 group-hover:text-indigo-500">W</span>
                     </div>
                 </a>
             </div>
@@ -75,9 +73,8 @@
                         class="absolute top-0 left-0 right-0 bottom-0 bg-gradient-to-r from-indigo-500 to-pink-500 opacity-0 transition duration-300 ease-in-out group-hover:opacity-70">
                     </div>
                     <div class="p-4 flex flex-col items-center justify-between relative z-10">
-                        <h3 class="text-lg font-medium text-txt group-hover:text-gray-dark">Awesome Project 5</h3>
-                        <span class="text-sm font-bold text-pink-500 group-hover:text-indigo-500">Web Design,
-                            Branding</span>
+                        <h3 class="text-lg font-medium text-txt group-hover:text-gray-dark"> 5</h3>
+                        <span class="text-sm font-bold text-pink-500 group-hover:text-indigo-500">W</span>
                     </div>
                 </a>
             </div>
@@ -88,9 +85,8 @@
                         class="absolute top-0 left-0 right-0 bottom-0 bg-gradient-to-r from-indigo-500 to-pink-500 opacity-0 transition duration-300 ease-in-out group-hover:opacity-70">
                     </div>
                     <div class="p-4 flex flex-col items-center justify-between relative z-10">
-                        <h3 class="text-lg font-medium text-txt group-hover:text-gray-dark">Awesome Project 6</h3>
-                        <span class="text-sm font-bold text-pink-500 group-hover:text-indigo-500">Web Design,
-                            Branding</span>
+                        <h3 class="text-lg font-medium text-txt group-hover:text-gray-dark">6</h3>
+                        <span class="text-sm font-bold text-pink-500 group-hover:text-indigo-500">W</span>
                     </div>
                 </a>
             </div>
