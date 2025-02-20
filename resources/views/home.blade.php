@@ -8,7 +8,7 @@
   @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
 <body class="bg-gray-100">
-
+<script src= "https://cdn.tailwindcss.com"></script>
   <nav class="flex justify-between items-center px-8 py-4 bg-white shadow-md">
     <div class="text-2xl font-bold text-gray-800">rhode</div>
     <ul class="flex space-x-6 text-gray-700">
