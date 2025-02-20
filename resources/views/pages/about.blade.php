@@ -2,95 +2,145 @@
 
 @section('content')
 
-<navbar>
-  <div class='w-full py-3 border-b'>
-    <div class='flex justify-between px-20 items-center font-semibold'>
-      <div>
-        <img src="/images/jn_logo.jpg"
-           alt="Product" class="h-20 w-40 object-cover rounded-t-xl"  />
-      </div>
-      <div class='flex xl:gap-10 md:gap-8 gap-2'>
-        <a href="/" class="text-gray-500 hover:text-black">Home</a>
-        <a href="/about" class="text-gray-500 hover:text-black">About</a>
-        <a href="/products" class="text-gray-500 hover:text-black">Products</a>
-        <a href="/contact" class="text-gray-500 hover:text-black">Contact</a>
-      </div>
-      <div>
-        <a href="/login"><button class='py-2 px-6 bg-black text-white rounded-3xl font-semibold'>Login</button>
-      </div>
+@include('pages.components.header')
+
+<div class="relative w-full h-[320px]" id="home">
+    <div class="absolute inset-0 opacity-70">
+        <img src="/images/aura1.jpg" alt="Background Image" class="object-cover object-center w-full h-full" />
     </div>
-  </div>
-</navbar>
-  
-<div class="contact_us_6">
-  <div class="responsive-container-block container">
-    <form class="form-box">
-      <div class="container-block form-wrapper">
-        <div class="mob-text">
-          <p class="text-blk contactus-head">
-           GET IN ABOTTUUUUUUU
-          </p>
-          <p class="text-blk contactus-subhead">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Felis diam lectus sapien.
-          </p>
+    <div class="absolute inset-0 flex flex-col items-center justify-center text-center">
+        <div class="w-full px-6">
+            <h1 class="text-gray-700 font-medium text-4xl md:text-5xl leading-tight mb-2">Jinnion Beauty</h1>
+            <p class="font-regular text-xl mb-8 mt-4">Where Confidence Meets Creation.</p>
+            <a  href="{{ url('/contact')}}"
+                class="px-6 py-3 bg-pink-300 text-white font-medium rounded-full hover:bg-pink-400 transition duration-200">
+                Contact Us
+            </a>
         </div>
-        <div class="responsive-container-block" id="i2cbk">
-          <div class="responsive-cell-block wk-tab-12 wk-mobile-12 wk-desk-12 wk-ipadp-12" id="i10mt-3">
-            <p class="text-blk input-title">
-              FIRST NAME
-            </p>
-            <input class="input" id="ijowk-3" name="FirstName" placeholder="Please enter first name...">
-          </div>
-          <div class="responsive-cell-block wk-tab-12 wk-mobile-12 wk-desk-12 wk-ipadp-12" id="ip1yp">
-            <p class="text-blk input-title">
-              EMAIL
-            </p>
-            <input class="input" id="ipmgh-3" name="Email" placeholder="Please enter email...">
-          </div>
-          <div class="responsive-cell-block wk-tab-12 wk-mobile-12 wk-desk-12 wk-ipadp-12" id="ih9wi">
-            <p class="text-blk input-title">
-              PHONE NUMBER
-            </p>
-            <input class="input" id="imgis-3" name="PhoneNumber" placeholder="Please enter phone number...">
-          </div>
-          <div class="responsive-cell-block wk-tab-12 wk-mobile-12 wk-desk-12 wk-ipadp-12" id="i634i-3">
-            <p class="text-blk input-title">
-              WHAT DO YOU HAVE IN MIND ?
-            </p>
-            <textarea class="textinput" id="i5vyy-3" placeholder="Please enter query..."></textarea>
-          </div>
-        </div>
-        <button class="submit-btn" id="w-c-s-bgc_p-1-dm-id-2">
-          Submit
-        </button>
-      </div>
-    </form>
-    <div class="responsive-cell-block wk-desk-7 wk-ipadp-12 wk-tab-12 wk-mobile-12" id="i772w">
-      <div class="map-part">
-        <p class="text-blk map-contactus-head" id="w-c-s-fc_p-1-dm-id">
-          Reach us at
-        </p>
-        <p class="text-blk map-contactus-subhead">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Felis diam lectus sapien.
-        </p>
-        <div class="social-media-links mob">
-          <a class="social-icon-link" href="#" id="ix94i-2-2">
-            <img class="link-img image-block" src="https://workik-widget-assets.s3.amazonaws.com/Footer1-83/v1/images/Icon-twitter.png">
-          </a>
-          <a class="social-icon-link" href="#" id="itixd">
-            <img class="link-img image-block" src="https://workik-widget-assets.s3.amazonaws.com/Footer1-83/v1/images/Icon-facebook.png">
-          </a>
-          <a class="social-icon-link" href="#" id="izxvt">
-            <img class="link-img image-block" src="https://workik-widget-assets.s3.amazonaws.com/Footer1-83/v1/images/Icon-google.png">
-          </a>
-          <a class="social-icon-link" href="#" id="izldf-2-2">
-            <img class="link-img image-block" src="https://workik-widget-assets.s3.amazonaws.com/Footer1-83/v1/images/Icon-instagram.png">
-          </a>
-        </div>
-        <div class="map-box container-block">
-        </div>
-      </div>
     </div>
-  </div>
 </div>
-@endsection
+
+
+
+
+<section class="py-10" id="services">
+    <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">Our Services</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                <img src="/images/logo1.jpg" alt="logos" class="w-full h-64 object-cover">
+                <div class="p-6 text-center">
+                    <h3 class="text-xl font-medium text-gray-800 mb-2">About our brands</h3>
+                    <p class="text-gray-700 text-base">At Jinnion Beauty, we craft brands that celebrate confidence and
+                        individuality.
+                        From clean skincare and bold cosmetics to nourishing haircare, our products are designed to meet
+                        diverse beauty
+                        needs. Discover innovation, inclusivity, and self-expression with every Jinnion brand.</p>
+                </div>
+            </div>
+            <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                <img src="/images/delivery.jpg" alt="delivery" class="w-full h-64 object-cover">
+                <div class="p-6 text-center">
+                    <h3 class="text-xl font-medium text-gray-800 mb-2">Our delivery</h3>
+                    <p class="text-gray-700 text-base">At Jinnion Beauty, we ensure your favorite products reach you
+                        quickly and
+                        securely. We offer reliable shipping options with tracking updates to keep you informed every
+                        step of the way.
+
+                        Enjoy fast, hassle-free delivery straight to your doorstep—because beauty shouldn’t wait.</p>
+                </div>
+            </div>
+            <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                <img src="/images/team1.jpg" alt="team" class="w-full h-64 object-cover">
+                <div class="p-6 text-center">
+                    <h3 class="text-xl font-medium text-gray-800 mb-2">Meet the Team</h3>
+                    <p class="text-gray-700 text-base">At Jinnion Beauty, our passionate team blends creativity and
+                        expertise to craft products that inspire confidence. Driven by innovation and inclusivity, we’re
+                        dedicated to making your beauty journey extraordinary.
+                    <details>
+                        <summary>Read More</summary>
+                        <p>Our jowar flour is also
+                            a good source of protein and fiber, making it a healthy choice for your family.</p>
+                    </details>
+                    </p>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<section class="bg-gray-100" id="aboutus">
+    <div class="container mx-auto py-16 px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 items-center gap-8">
+            <div class="max-w-lg">
+                <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">About Us</h2>
+                <p class="mt-4 text-gray-600 text-lg">
+                    At Jinnion Beauty, we’re passionate about creating high-quality products that empower you to express
+                    your unique beauty. From skincare to cosmetics, each product is designed with inclusivity,
+                    innovation, and self-confidence in mind.
+
+                    We believe that beauty is personal, and we’re here to celebrate every individual’s journey with
+                    products that inspire, uplift, and deliver results.
+
+                    Join us as we redefine beauty, one product at a time.</p>
+            </div>
+            <div class="mt-12 md:mt-0">
+                <img src="/images/team2.jpg" alt="About Us Image" class="object-cover rounded-lg shadow-md">
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="text-gray-700 body-font mt-10">
+    <div class="flex justify-center text-3xl font-bold text-gray-800 text-center">
+        Why Us?
+    </div>
+    <div class="container px-5 py-12 mx-auto">
+        <div class="flex flex-wrap text-center justify-center">
+            <div class="p-4 md:w-1/4 sm:w-1/2">
+                <div class="px-4 py-6 transform transition duration-500 hover:scale-110">
+                    <div class="flex justify-center">
+                        <img src="/images/icon3.jpg"
+                            class="w-32 mb-3">
+                    </div>
+                    <h2 class="title-font font-regular text-2xl text-gray-900">Moisturize</h2>
+                </div>
+            </div>
+
+            <div class="p-4 md:w-1/4 sm:w-1/2">
+                <div class="px-4 py-6 transform transition duration-500 hover:scale-110">
+                    <div class="flex justify-center">
+                        <img src="./images/icon2.jpg" class="w-32 mb-3">
+                    </div>
+                    <h2 class="title-font font-regular text-2xl text-gray-900">UV light protect</h2>
+                </div>
+            </div>
+
+            <div class="p-4 md:w-1/4 sm:w-1/2">
+                <div class="px-4 py-6 transform transition duration-500 hover:scale-110">
+                    <div class="flex justify-center">
+                        <img src="./images/icon1.jpg" class="w-32 mb-3">
+                    </div>
+                    <h2 class="title-font font-regular text-2xl text-gray-900">Vegan</h2>
+                </div>
+            </div>
+
+            <div class="p-4 md:w-1/4 sm:w-1/2">
+                <div class="px-4 py-6 transform transition duration-500 hover:scale-110">
+                    <div class="flex justify-center">
+                        <img src="/images/icon4.jpg"
+                            class="w-32 mb-3">
+                    </div>
+                    <h2 class="title-font font-regular text-2xl text-gray-900">Expertise in Industry</h2>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+

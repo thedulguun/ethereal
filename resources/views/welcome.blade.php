@@ -2,25 +2,7 @@
 
 @section('content')
 
-<navbar>
-  <div class='w-full py-3 border-b'>
-    <div class='flex justify-between px-20 items-center font-semibold'>
-      <div>
-        <img src="/images/jn_logo.jpg"
-           alt="Product" class="h-20 w-40 object-cover rounded-t-xl"  />
-      </div>
-      <div class='flex xl:gap-10 md:gap-8 gap-2'>
-        <a href="/welcome" class="text-gray-500 hover:text-black">Home</a>
-        <a href="/about" class="text-gray-500 hover:text-black">About</a>
-        <a href="/products" class="text-gray-500 hover:text-black">Products</a>
-        <a href="/contact" class="text-gray-500 hover:text-black">Contact</a>
-      </div>
-      <div>
-        <a href="/login"><button class='py-2 px-6 bg-black text-white rounded-3xl font-semibold'>Login</button>
-      </div>
-    </div>
-  </div>
-</navbar>
+@include('pages.components.header')
   
 <section class="relative bg-cover bg-center h-screen" style="background-image: url('/images/beauty.jpg');">
     <div class="absolute inset-0 bg-black bg-opacity-30 flex justify-center items-center">
@@ -153,12 +135,7 @@
     <div class="grid gap-10 row-gap-6 mb-8 sm:grid-cols-2 lg:grid-cols-4">
       <div class="sm:col-span-2">
         <a href="/" aria-label="Go home" title="Company" class="inline-flex items-center">
-          <svg class="w-8 text-deep-purple-accent-400" viewBox="0 0 24 24" stroke-linejoin="round" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" stroke="currentColor" fill="none">
-            <rect x="3" y="1" width="7" height="12"></rect>
-            <rect x="3" y="17" width="7" height="6"></rect>
-            <rect x="14" y="1" width="7" height="6"></rect>
-            <rect x="14" y="11" width="7" height="12"></rect>
-          </svg>
+          
           <span class="ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase">Jinnion</span>
         </a>
         <div class="mt-6 lg:max-w-sm">
@@ -174,11 +151,11 @@
         <p class="text-base font-bold tracking-wide text-gray-900">Contacts</p>
         <div class="flex">
           <p class="mr-1 text-gray-800">Phone:</p>
-          <a href="tel:850-123-5021" aria-label="Our phone" title="Our phone" class="transition-colors duration-300 text-deep-purple-accent-400 hover:text-deep-purple-800">850-123-5021</a>
+          <a href="tel:850-123-5021" aria-label="Our phone" title="Our phone" class="transition-colors duration-300 text-deep-purple-accent-400 hover:text-deep-purple-800">+976 99417761</a>
         </div>
         <div class="flex">
           <p class="mr-1 text-gray-800">Email:</p>
-          <a href="mailto:info@lorem.mail" aria-label="Our email" title="Our email" class="transition-colors duration-300 text-deep-purple-accent-400 hover:text-deep-purple-800">info@lorem.mail</a>
+          <a href="mailto:info@lorem.mail" aria-label="Our email" title="Our email" class="transition-colors duration-300 text-deep-purple-accent-400 hover:text-deep-purple-800">jinnionbeauty@gmail.com</a>
         </div>
         <div class="flex">
           <p class="mr-1 text-gray-800">Address:</p>
@@ -214,7 +191,7 @@
           </a>
         </div>
         <p class="mt-4 text-sm text-gray-500">
-          Bacon ipsum dolor amet short ribs pig sausage prosciutto chicken spare ribs salami.
+          You can contact with us all sources.
         </p>
       </div>
     </div>

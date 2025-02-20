@@ -1,96 +1,52 @@
 @extends('layouts.app')
 
 @section('content')
+@include('pages.components.header')
 
-<navbar>
-  <div class='w-full py-3 border-b'>
-    <div class='flex justify-between px-20 items-center font-semibold'>
-      <div>
-        <img src="/images/jn_logo.jpg"
-           alt="Product" class="h-20 w-40 object-cover rounded-t-xl"  />
+<div class="min-h-screen bg-pink-100 py-6 flex flex-col justify-center sm:py-12">
+  <div class="relative py-3 sm:max-w-xl sm:mx-auto">
+      <div
+          class="absolute inset-0 bg-gradient-to-r from-pink-400 to-purple-400 shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-3xl">
       </div>
-      <div class='flex xl:gap-10 md:gap-8 gap-2'>
-        <a href="/" class="text-gray-500 hover:text-black">Home</a>
-        <a href="/about" class="text-gray-500 hover:text-black">About</a>
-        <a href="/products" class="text-gray-500 hover:text-black">Products</a>
-        <a href="/contact" class="text-gray-500 hover:text-black">Contact</a>
-      </div>
-      <div>
-        <a href="/login"><button class='py-2 px-6 bg-black text-white rounded-3xl font-semibold'>Login</button>
-      </div>
-    </div>
-  </div>
-</navbar>
-  
-<div class="contact_us_6">
-  <div class="responsive-container-block container">
-    <form class="form-box">
-      <div class="container-block form-wrapper">
-        <div class="mob-text">
-          <p class="text-blk contactus-head">
-            Get in Touch
-          </p>
-          <p class="text-blk contactus-subhead">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Felis diam lectus sapien.
-          </p>
-        </div>
-        <div class="responsive-container-block" id="i2cbk">
-          <div class="responsive-cell-block wk-tab-12 wk-mobile-12 wk-desk-12 wk-ipadp-12" id="i10mt-3">
-            <p class="text-blk input-title">
-              FIRST NAME
-            </p>
-            <input class="input" id="ijowk-3" name="FirstName" placeholder="Please enter first name...">
+      <div class="text-white relative px-4 py-10 bg-pink-300 shadow-lg sm:rounded-3xl sm:p-20">
+
+          <div class="text-center pb-6">
+              <h1 class="text-3xl">Contact Us!</h1>
+
+              <p class="text-gray-300">
+                  If you need our help send us a message.
+              </p>
           </div>
-          <div class="responsive-cell-block wk-tab-12 wk-mobile-12 wk-desk-12 wk-ipadp-12" id="ip1yp">
-            <p class="text-blk input-title">
-              EMAIL
-            </p>
-            <input class="input" id="ipmgh-3" name="Email" placeholder="Please enter email...">
-          </div>
-          <div class="responsive-cell-block wk-tab-12 wk-mobile-12 wk-desk-12 wk-ipadp-12" id="ih9wi">
-            <p class="text-blk input-title">
-              PHONE NUMBER
-            </p>
-            <input class="input" id="imgis-3" name="PhoneNumber" placeholder="Please enter phone number...">
-          </div>
-          <div class="responsive-cell-block wk-tab-12 wk-mobile-12 wk-desk-12 wk-ipadp-12" id="i634i-3">
-            <p class="text-blk input-title">
-              WHAT DO YOU HAVE IN MIND ?
-            </p>
-            <textarea class="textinput" id="i5vyy-3" placeholder="Please enter query..."></textarea>
-          </div>
-        </div>
-        <button class="submit-btn" id="w-c-s-bgc_p-1-dm-id-2">
-          Submit
-        </button>
+
+          <form>
+
+              <input
+                      class="shadow mb-4 appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                      type="text" placeholder="Name" name="name">
+
+              <input
+                      class="shadow mb-4 appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                      type="email" placeholder="Email" name="email">
+
+              <input
+                      class="shadow mb-4 appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                      type="text" placeholder="Subject" name="_subject">
+
+              <textarea
+                      class="shadow mb-4 min-h-0 appearance-none border rounded h-64 w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                      type="text" placeholder="Type your message here..." name="message" style="height: 121px;"></textarea>
+
+              <div class="flex justify-between">
+                  <input
+                      class="shadow bg-purple-400 hover:bg-purple-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                      type="submit" value="Send ➤">
+                  <input
+                      class="shadow bg-purple-400 hover:bg-purple-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                      type="reset">
+              </div>
+
+          </form>
       </div>
-    </form>
-    <div class="responsive-cell-block wk-desk-7 wk-ipadp-12 wk-tab-12 wk-mobile-12" id="i772w">
-      <div class="map-part">
-        <p class="text-blk map-contactus-head" id="w-c-s-fc_p-1-dm-id">
-          Reach us at
-        </p>
-        <p class="text-blk map-contactus-subhead">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Felis diam lectus sapien.
-        </p>
-        <div class="social-media-links mob">
-          <a class="social-icon-link" href="#" id="ix94i-2-2">
-            <img class="link-img image-block" src="https://workik-widget-assets.s3.amazonaws.com/Footer1-83/v1/images/Icon-twitter.png">
-          </a>
-          <a class="social-icon-link" href="#" id="itixd">
-            <img class="link-img image-block" src="https://workik-widget-assets.s3.amazonaws.com/Footer1-83/v1/images/Icon-facebook.png">
-          </a>
-          <a class="social-icon-link" href="#" id="izxvt">
-            <img class="link-img image-block" src="https://workik-widget-assets.s3.amazonaws.com/Footer1-83/v1/images/Icon-google.png">
-          </a>
-          <a class="social-icon-link" href="#" id="izldf-2-2">
-            <img class="link-img image-block" src="https://workik-widget-assets.s3.amazonaws.com/Footer1-83/v1/images/Icon-instagram.png">
-          </a>
-        </div>
-        <div class="map-box container-block">
-        </div>
-      </div>
-    </div>
   </div>
 </div>
 @endsection

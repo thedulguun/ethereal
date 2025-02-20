@@ -4,25 +4,7 @@
 @section('content')
 
 
-<navbar>
-    <div class='w-full py-3 border-b'>
-      <div class='flex justify-between px-20 items-center font-semibold'>
-        <div>
-          <img src="/images/jn_logo.jpg"
-             alt="Product" class="h-20 w-40 object-cover rounded-t-xl"  />
-        </div>
-        <div class='flex xl:gap-10 md:gap-8 gap-2'>
-          <a href="/welcome" class="text-gray-500 hover:text-black">Home</a>
-          <a href="/about" class="text-gray-500 hover:text-black">About</a>
-          <a href="/products" class="text-gray-500 hover:text-black">Products</a>
-          <a href="/contact" class="text-gray-500 hover:text-black">Contact</a>
-        </div>
-        <div>
-          <a href="/login"><button class='py-2 px-6 bg-black text-white rounded-3xl font-semibold'>Login</button>
-        </div>
-      </div>
-    </div>
-  </navbar>
+@include('pages.components.header')
 
 <div class="bg-gray-100 dark:bg-gray-800 py-8">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -56,7 +38,7 @@
                 <div class="mb-4">
                     <span class="font-bold text-gray-700 dark:text-gray-300">Select Color:</span>
                     <div class="flex items-center mt-2">
-                        <button class="w-6 h-6 rounded-full bg-gray-800 dark:bg-gray-200 mr-2"></button>
+                        <button class="w-6 h-6 rounded-full bg-pink-600 dark:bg-pink-800 mr-2"></button>
                         <button class="w-6 h-6 rounded-full bg-red-500 dark:bg-red-700 mr-2"></button>
                         <button class="w-6 h-6 rounded-full bg-blue-500 dark:bg-blue-700 mr-2"></button>
                         <button class="w-6 h-6 rounded-full bg-yellow-500 dark:bg-yellow-700 mr-2"></button>
@@ -66,11 +48,9 @@
                 <div>
                     <span class="font-bold text-gray-700 dark:text-gray-300">Product Description:</span>
                     <p class="text-gray-600 dark:text-gray-300 text-sm mt-2">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-                        sed ante justo. Integer euismod libero id mauris malesuada tincidunt. Vivamus commodo nulla ut
-                        lorem rhoncus aliquet. Duis dapibus augue vel ipsum pretium, et venenatis sem blandit. Quisque
-                        ut erat vitae nisi ultrices placerat non eget velit. Integer ornare mi sed ipsum lacinia, non
-                        sagittis mauris blandit. Morbi fermentum libero vel nisl suscipit, nec tincidunt mi consectetur.
+                        Enhance your lips with the luxurious, nourishing formula of Rhode Peptide Lip Tint. Infused with peptides and hydrating ingredients, this lip tint offers a smooth, soft finish while providing a natural flush of color. It deeply nourishes and plumps, leaving lips feeling moisturized all day without the sticky residue.
+
+Perfect for a subtle, effortless look, the Rhode Peptide Lip Tint delivers a sheer, buildable tint with a lightweight, non-drying formula. Ideal for everyday wear, it combines beauty with skincare for lips that look and feel their best.
                     </p>
                 </div>
             </div>

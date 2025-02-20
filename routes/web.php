@@ -14,7 +14,7 @@ Route::get('/about', function () {
 Route::get('/contact', function () {
     return view('auth.contact');
 })->name('contact');
-
+Route::get('/productpage', [App\Http\Controllers\HomeController::class, 'products']);
 Route::get('/product1', function () {
     return view('pages.product1');
 })->name('product1');
