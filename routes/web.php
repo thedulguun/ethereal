@@ -1,15 +1,20 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
-Route::get('/', function() {
-    return view('welcome');
-});
+Route::get('/', [HomeController::class, 'welcome']);
 
 Route::get('/about', function () {
     return view('pages.about');
 })->name('about');
+
+Route::get('/image', function () {
+    return view('pages.upload');
+})->name('upload');
+
+Route::post('savedData', [HomeController::class, 'saveProduct'])->name('uploadData');
 
 Route::get('/contact', function () {
     return view('auth.contact');
