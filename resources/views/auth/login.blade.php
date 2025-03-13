@@ -1,9 +1,8 @@
 <?php
 
 $error = isset($error) ? $error : '';
-
 ?>
- @include('pages.components.header')
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

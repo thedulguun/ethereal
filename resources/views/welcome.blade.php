@@ -41,7 +41,6 @@
           <p class="text-lg font-bold text-black truncate capitalize">Piptide Lip</p>
           <div class="flex items-center">
             <p class="text-lg font-semibold text-black my-3">₮95'000</p>
-            <del class="ml-2 text-sm text-gray-600">₮100'000</del>
           </div>
         </div>
       </a>
@@ -50,14 +49,13 @@
     
       <div class="w-72 bg-white shadow-md rounded-xl transition-transform duration-500 hover:scale-105 hover:shadow-xl">
           <a href="#">
-              <img src="/images/rhode_lip.jpg"
+              <img src="/images/lauramercier1.jpg"
                    alt="Product" class="h-80 w-72 object-cover rounded-t-xl" />
               <div class="p-4">
-                  <span class="text-gray-400 uppercase text-xs">Rhode</span>
-                  <p class="text-lg font-bold text-black truncate capitalize">Piptide Lip</p>
+                  <span class="text-gray-400 uppercase text-xs">Laura Mercier</span>
+                  <p class="text-lg font-bold text-black truncate capitalize">Ultra-Blur Talc-Free Translucent Loose Setting Powder</p>
                   <div class="flex items-center">
-                      <p class="text-lg font-semibold text-black my-3">₮95'000</p>
-                      <del class="ml-2 text-sm text-gray-600">₮100'000</del>
+                      <p class="text-lg font-semibold text-black my-3">₮190'000</p>
                       
                   </div>
               </div>
@@ -65,30 +63,13 @@
       </div>
       <div class="w-72 bg-white shadow-md rounded-xl transition-transform duration-500 hover:scale-105 hover:shadow-xl">
           <a href="#">
-              <img src="/images/rhode_lip.jpg"
+              <img src="/images/diorlipscrub.jpg"
                    alt="Product" class="h-80 w-72 object-cover rounded-t-xl" />
               <div class="p-4">
-                  <span class="text-gray-400 uppercase text-xs">Rhode</span>
-                  <p class="text-lg font-bold text-black truncate capitalize">Piptide Lip</p>
+                  <span class="text-gray-400 uppercase text-xs">Dior</span>
+                  <p class="text-lg font-bold text-black truncate capitalize">Dior Addict Lip Sugar Scrub</p>
                   <div class="flex items-center">
-                      <p class="text-lg font-semibold text-black my-3">₮95'000</p>
-                      <del class="ml-2 text-sm text-gray-600">₮100'000</del>
-                      
-                  </div>
-              </div>
-          </a>
-      </div>
-  
-      <div class="w-72 bg-white shadow-md rounded-xl transition-transform duration-500 hover:scale-105 hover:shadow-xl">
-          <a href="#">
-              <img src="/images/rhode_lip.jpg"
-                   alt="Product" class="h-80 w-72 object-cover rounded-t-xl" />
-              <div class="p-4">
-                  <span class="text-gray-400 uppercase text-xs">Rhode</span>
-                  <p class="text-lg font-bold text-black truncate capitalize">Piptide Lip</p>
-                  <div class="flex items-center">
-                      <p class="text-lg font-semibold text-black my-3">₮95'000</p>
-                      <del class="ml-2 text-sm text-gray-600">₮100'000</del>
+                      <p class="text-lg font-semibold text-black my-3">₮160'000</p>
                       
                   </div>
               </div>
@@ -97,14 +78,14 @@
   
       <div class="w-72 bg-white shadow-md rounded-xl transition-transform duration-500 hover:scale-105 hover:shadow-xl">
           <a href="#">
-              <img src="/images/rhode_lip.jpg"
+              <img src="/images/matteblush.jpg"
                    alt="Product" class="h-80 w-72 object-cover rounded-t-xl" />
               <div class="p-4">
-                  <span class="text-gray-400 uppercase text-xs">Rhode</span>
-                  <p class="text-lg font-bold text-black truncate capitalize">Piptide Lip</p>
+                  <span class="text-gray-400 uppercase text-xs">Charlotte Tilbury</span>
+                  <p class="text-lg font-bold text-black truncate capitalize">Matte Blush Wand</p>
                   <div class="flex items-center">
-                      <p class="text-lg font-semibold text-black my-3">₮95'000</p>
-                      <del class="ml-2 text-sm text-gray-600">₮100'000</del>
+                      <p class="text-lg font-semibold text-black my-3">₮168'000</p>
+
                       
                   </div>
               </div>
@@ -113,14 +94,30 @@
   
       <div class="w-72 bg-white shadow-md rounded-xl transition-transform duration-500 hover:scale-105 hover:shadow-xl">
           <a href="#">
-              <img src="/images/rhode_lip.jpg"
+              <img src="/images/duckplump.jpg"
                    alt="Product" class="h-80 w-72 object-cover rounded-t-xl" />
               <div class="p-4">
-                  <span class="text-gray-400 uppercase text-xs">Rhode</span>
-                  <p class="text-lg font-bold text-black truncate capitalize">Piptide Lip</p>
+                  <span class="text-gray-400 uppercase text-xs">NYX</span>
+                  <p class="text-lg font-bold text-black truncate capitalize"> Duck Plump High Pigment Lip Plumping Gloss</p>
                   <div class="flex items-center">
-                      <p class="text-lg font-semibold text-black my-3">₮95'000</p>
-                      <del class="ml-2 text-sm text-gray-600">₮100'000</del>
+                      <p class="text-lg font-semibold text-black my-3">₮25'000</p>
+
+                      
+                  </div>
+              </div>
+          </a>
+      </div>
+  
+      <div class="w-72 bg-white shadow-md rounded-xl transition-transform duration-500 hover:scale-105 hover:shadow-xl">
+          <a href="#">
+              <img src="/images/makeupforever.jpg"
+                   alt="Product" class="h-80 w-72 object-cover rounded-t-xl" />
+              <div class="p-4">
+                  <span class="text-gray-400 uppercase text-xs">MAKE UP FOR EVER</span>
+                  <p class="text-lg font-bold text-black truncate capitalize">HD Skin Face Essentials – Longwear Full Face Cream Palette</p>
+                  <div class="flex items-center">
+                      <p class="text-lg font-semibold text-black my-3">₮310'000</p>
+
                       
                   </div>
               </div>
