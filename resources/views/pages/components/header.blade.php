@@ -2,8 +2,10 @@
     <div class='w-full py-3 border-b'>
       <div class='flex justify-between px-20 items-center font-semibold'>
         <div>
+          <a href="/">
           <img src="/images/jn_logo.jpg"
              alt="Product" class="h-20 w-40 object-cover rounded-t-xl"  />
+             </a>
         </div>
         <div class='flex xl:gap-10 md:gap-8 gap-2'>
           <a href="/" class="text-gray-500 hover:text-black">Home</a>

@@ -50,4 +50,10 @@ class HomeController extends Controller
  
         return redirect()->back()->with('Amjilttai hadgallaa');
     }
+
+    public function detailProduct($id)
+    {
+        $product = DB::table('products')->where('product_id', $id)->first();
+        return view('pages.product1', compact('product'));
+    }
 }

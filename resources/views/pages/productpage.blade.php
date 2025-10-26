@@ -2,11 +2,6 @@
 
 @section('content')
 
-@include('pages.components.header')
-
-<!DOCTYPE html>
-<html lang="en">
-<body>
     <div class="min-h-screen flex">
 
         <div class="bg-white w-64 border-r shadow-sm">
@@ -167,6 +162,5 @@
           
           </section>
     </div>
-</body>
-</html>
-        
+
+@endsection

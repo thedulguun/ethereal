@@ -22,9 +22,7 @@ Route::get('/contact', function () {
 
 Route::get('/productpage', [App\Http\Controllers\HomeController::class, 'products']);
 
-Route::get('/product1', function () {
-    return view('pages.product1');
-})->name('product1');
+Route::get('/product/{id}', [HomeController::class, 'detailProduct'])->name('product1');
 
 Auth::routes();
 

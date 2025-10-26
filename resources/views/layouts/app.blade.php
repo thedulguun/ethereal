@@ -18,9 +18,12 @@
 </head>
 <body>
     <div id="app">
+
+@include('pages.components.header')
         <main class="">
             @yield('content')
         </main>
+        @include('pages.components.footer')
     </div>
 </body>
 </html>

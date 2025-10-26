@@ -3,9 +3,6 @@
 
 @section('content')
 
-
-@include('pages.components.header')
-
 <div class="bg-gray-100 dark:bg-gray-800 py-8">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex flex-col md:flex-row -mx-4">
@@ -23,15 +20,14 @@
                 </div>
             </div>
             <div class="md:flex-1 px-4">
-                <h2 class="text-2xl font-bold text-gray-800 dark:text-white mb-2">Peptide lip tint</h2>
+                <h2 class="text-2xl font-bold text-gray-800 dark:text-white mb-2">{{ $product->product_name }}</h2>
                 <p class="text-gray-600 dark:text-gray-300 text-sm mb-4">
-                    Meet Lip Tint. Sheer-but-buildable color that melts onto lips for a hint of tint and rich, glossy finish. 
-                    The nourishing, fragrance-free formula leaves lips feeling hydrated and visibly plump. Size: 10ml / .3 fl oz.
+                    {{ $product->description }}
                 </p>
                 <div class="flex mb-4">
                     <div class="mr-4">
                         <span class="font-bold text-gray-700 dark:text-gray-300">Price:</span>
-                        <span class="text-gray-600 dark:text-gray-300">₮95'000</span>
+                        <span class="text-gray-600 dark:text-gray-300">₮ {{ $product->price }}</span>
                     </div>
                     
                 </div>
@@ -48,12 +44,11 @@
                 <div>
                     <span class="font-bold text-gray-700 dark:text-gray-300">Product Description:</span>
                     <p class="text-gray-600 dark:text-gray-300 text-sm mt-2">
-                        Enhance your lips with the luxurious, nourishing formula of Rhode Peptide Lip Tint. Infused with peptides and hydrating ingredients, this lip tint offers a smooth, soft finish while providing a natural flush of color. It deeply nourishes and plumps, leaving lips feeling moisturized all day without the sticky residue.
-
-Perfect for a subtle, effortless look, the Rhode Peptide Lip Tint delivers a sheer, buildable tint with a lightweight, non-drying formula. Ideal for everyday wear, it combines beauty with skincare for lips that look and feel their best.
-                    </p>
+ {{ $product->description }}
+                </p>
                 </div>
             </div>
         </div>
     </div>
 </div>
+@endsection

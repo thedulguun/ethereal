@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-@include('pages.components.header')
+<!-- @include('pages.components.header') -->
 
   
 <div class="min-h-screen bg-pink-100 py-6 flex flex-col justify-center sm:py-12">
@@ -45,5 +45,4 @@
       </div>
   </div>
 </div>
-
 @endsection
