@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -19,6 +20,8 @@ Route::post('savedData', [HomeController::class, 'saveProduct'])->name('uploadDa
 Route::get('/contact', function () {
     return view('auth.contact');
 })->name('contact');
+
+Route::post('/contact', ContactController::class)->name('contact.send');
 
 Route::get('/productpage', [App\Http\Controllers\HomeController::class, 'products']);
 
