@@ -28,19 +28,11 @@ class ContactController extends Controller
                 ->withErrors(['email' => 'Unable to send message: owner email address is not configured.']);
         }
 
-        try {
-            Mail::to($ownerAddress)->send(new ContactMessage(
-                $validated['name'],
-                $validated['email'],
-                $validated['message']
-            ));
-        } catch (\Throwable $exception) {
-            report($exception);
-
-            return back()
-                ->withInput()
-                ->withErrors(['email' => 'We could not send your message right now. Please try again later.']);
-        }
+        Mail::to($ownerAddress)->send(new ContactMessage(
+            $validated['name'],
+            $validated['email'],
+            $validated['message']
+        ));
 
         return back()->with('status', 'Thank you for reaching out! Your message has been sent.');
     }
