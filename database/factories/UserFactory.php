@@ -28,11 +28,15 @@ class UserFactory extends Factory
             'username' => fake()->unique()->userName(),
             'email' => fake()->unique()->safeEmail(),
             'email_verified_at' => now(),
+            'date_of_birth' => fake()->optional()->dateTimeBetween('-60 years', '-18 years')?->format('Y-m-d'),
+            'home_address' => fake()->optional()->streetAddress(),
             'password' => static::$password ??= Hash::make('password'),
             'date_of_birth' => fake()->dateTimeBetween('-60 years', '-18 years')->format('Y-m-d'),
             'home_address' => fake()->optional()->streetAddress(),
             'profile_photo_path' => null,
             'remember_token' => Str::random(10),
+            'profile_photo_path' => 'images/white-circle.svg',
+            'profile_details_updated_at' => now(),
         ];
     }
 

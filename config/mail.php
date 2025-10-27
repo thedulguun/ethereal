@@ -115,10 +115,10 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
-        'name' => env('MAIL_FROM_NAME', 'Example'),
+        'address' => env('MAIL_FROM_ADDRESS', 'dulguun.public@gmail.com'),
+        'name' => env('MAIL_FROM_NAME', 'Ethereal'),
     ],
 
     'owner_address' => env('MAIL_OWNER_ADDRESS', env('MAIL_FROM_ADDRESS')),
-
+    'admin_address' => env('MAIL_ADMIN_ADDRESS', null),
 ];

@@ -16,14 +16,13 @@
         <div>
           @guest
             <a href="{{ route('login') }}"><button class='py-2 px-6 bg-black text-white rounded-3xl font-semibold'>Login</button></a>
-          @else
-            <a href="{{ route('account.edit') }}" class="inline-flex items-center gap-3 rounded-full border border-transparent bg-white px-3 py-1.5 text-sm font-semibold text-gray-800 shadow-sm hover:shadow-md">
-              <span class="inline-flex h-9 w-9 items-center justify-center overflow-hidden rounded-full bg-white ring-1 ring-gray-200">
-                <img src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }} avatar" class="h-full w-full object-cover" />
-              </span>
-              <span class="pr-2">{{ \Illuminate\Support\Str::limit(Auth::user()->name, 18) }}</span>
-            </a>
           @endguest
+          @auth
+            <a href="{{ route('account.edit') }}" class="flex items-center gap-3 py-2 px-4 bg-white border border-gray-200 rounded-3xl hover:shadow">
+              <img src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}" class="h-10 w-10 rounded-full object-cover border border-gray-200">
+              <span class="text-gray-700 font-semibold">{{ Auth::user()->name }}</span>
+            </a>
+          @endauth
         </div>
       </div>
     </div>

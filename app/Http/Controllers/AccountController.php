@@ -2,45 +2,47 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\AccountUpdateRequest;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\View\View;
 
 class AccountController extends Controller
 {
-    public function edit(Request $request)
+    public function edit(Request $request): View
     {
         return view('account.edit', [
             'user' => $request->user(),
         ]);
     }
 
-    public function update(AccountUpdateRequest $request): RedirectResponse
+    public function update(Request $request): RedirectResponse
     {
         $user = $request->user();
-        $data = $request->validated();
+
+        $validated = $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'email', 'max:255', 'unique:users,email,' . $user->id],
+            'phone' => ['nullable', 'string', 'max:255'],
+            'address' => ['nullable', 'string', 'max:255'],
+            'bio' => ['nullable', 'string'],
+            'profile_photo' => ['nullable', 'image', 'max:2048'],
+        ]);
 
         if ($request->hasFile('profile_photo')) {
-            $path = $request->file('profile_photo')->store('avatars', 'public');
+            $path = $request->file('profile_photo')->store('profile-photos', 'public');
 
             if ($user->profile_photo_path) {
                 Storage::disk('public')->delete($user->profile_photo_path);
             }
 
-            $data['profile_photo_path'] = $path;
+            $validated['profile_photo_path'] = $path;
         }
 
-        if (! empty($data['password'])) {
-            $data['password'] = Hash::make($data['password']);
-        } else {
-            unset($data['password']);
-        }
+        unset($validated['profile_photo']);
 
-        $user->fill($data);
-        $user->save();
+        $user->update($validated);
 
-        return redirect()->route('account.edit')->with('status', 'Your account details have been updated.');
+        return redirect()->route('account.edit')->with('status', 'Your profile has been updated.');
     }
 }

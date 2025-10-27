@@ -1,125 +1,90 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="bg-gradient-to-br from-pink-50 via-white to-rose-100 py-12">
-    <div class="max-w-4xl mx-auto bg-white/90 backdrop-blur rounded-3xl shadow-xl overflow-hidden">
-        <div class="flex flex-col items-center text-center px-8 pt-10 pb-6 bg-white">
-            <div class="h-28 w-28 rounded-full border-4 border-white shadow-md overflow-hidden">
-                <img src="{{ $user->profile_photo_url }}" alt="{{ $user->name }} avatar" class="h-full w-full object-cover" />
+<div class="bg-gray-50 py-12">
+    <div class="max-w-3xl mx-auto bg-white shadow-lg rounded-2xl p-8 space-y-8">
+        <div class="flex items-center space-x-4">
+            <img src="{{ $user->profile_photo_url }}" alt="Profile photo" class="h-16 w-16 rounded-full object-cover border border-gray-200">
+            <div>
+                <h1 class="text-2xl font-semibold text-gray-900">Account settings</h1>
+                <p class="text-gray-500">Manage your personal details and profile preferences.</p>
             </div>
-            <h1 class="mt-6 text-3xl font-semibold text-gray-900">{{ $user->name }}</h1>
-            <p class="text-gray-500">Manage your personal information and preferences</p>
         </div>
 
-        <div class="px-8 pb-10">
-            @if (session('status'))
-                <div class="mb-6 rounded-xl border border-emerald-200 bg-emerald-50 px-4 py-3 text-emerald-700">
-                    {{ session('status') }}
-                </div>
-            @endif
+        @if (session('status'))
+            <div class="rounded-md bg-green-50 border border-green-200 text-green-700 px-4 py-3">
+                {{ session('status') }}
+            </div>
+        @endif
 
-            <form method="POST" action="{{ route('account.update') }}" enctype="multipart/form-data" class="space-y-6">
-                @csrf
-                @method('PUT')
+        @if ($errors->any())
+            <div class="rounded-md bg-red-50 border border-red-200 text-red-700 px-4 py-3">
+                <ul class="list-disc list-inside space-y-1">
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                        <label for="name" class="block text-sm font-medium text-gray-700">Full name *</label>
-                        <input id="name" name="name" type="text" value="{{ old('name', $user->name) }}" required
-                            class="mt-2 w-full rounded-2xl border border-gray-200 bg-gray-50 px-4 py-3 text-gray-900 focus:border-rose-400 focus:outline-none focus:ring-2 focus:ring-rose-200">
-                        @error('name')
-                            <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
-                        @enderror
-                    </div>
+        <form action="{{ route('account.update') }}" method="POST" enctype="multipart/form-data" class="space-y-6">
+            @csrf
+            @method('PUT')
 
-                    <div>
-                        <label for="username" class="block text-sm font-medium text-gray-700">Username</label>
-                        <input id="username" name="username" type="text" value="{{ old('username', $user->username) }}"
-                            class="mt-2 w-full rounded-2xl border border-gray-200 bg-gray-50 px-4 py-3 text-gray-900 focus:border-rose-400 focus:outline-none focus:ring-2 focus:ring-rose-200">
-                        @error('username')
-                            <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
-                        @enderror
-                    </div>
-
-                    <div>
-                        <label for="email" class="block text-sm font-medium text-gray-700">Email *</label>
-                        <input id="email" name="email" type="email" value="{{ old('email', $user->email) }}" required
-                            class="mt-2 w-full rounded-2xl border border-gray-200 bg-gray-50 px-4 py-3 text-gray-900 focus:border-rose-400 focus:outline-none focus:ring-2 focus:ring-rose-200">
-                        @error('email')
-                            <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
-                        @enderror
-                    </div>
-
-                    <div>
-                        <label for="date_of_birth" class="block text-sm font-medium text-gray-700">Date of birth</label>
-                        <input id="date_of_birth" name="date_of_birth" type="date" value="{{ old('date_of_birth', optional($user->date_of_birth)->format('Y-m-d')) }}"
-                            class="mt-2 w-full rounded-2xl border border-gray-200 bg-gray-50 px-4 py-3 text-gray-900 focus:border-rose-400 focus:outline-none focus:ring-2 focus:ring-rose-200">
-                        @error('date_of_birth')
-                            <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
-                        @enderror
-                    </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
+                    <input type="text" id="name" name="name" value="{{ old('name', $user->name) }}" required
+                        class="mt-1 block w-full rounded-lg border-gray-300 focus:border-black focus:ring-black">
                 </div>
 
                 <div>
-                    <label for="home_address" class="block text-sm font-medium text-gray-700">Home address</label>
-                    <textarea id="home_address" name="home_address" rows="3"
-                        class="mt-2 w-full rounded-2xl border border-gray-200 bg-gray-50 px-4 py-3 text-gray-900 focus:border-rose-400 focus:outline-none focus:ring-2 focus:ring-rose-200">{{ old('home_address', $user->home_address) }}</textarea>
-                    @error('home_address')
-                        <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
-                    @enderror
+                    <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+                    <input type="email" id="email" name="email" value="{{ old('email', $user->email) }}" required
+                        class="mt-1 block w-full rounded-lg border-gray-300 focus:border-black focus:ring-black">
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                        <label for="password" class="block text-sm font-medium text-gray-700">New password</label>
-                        <input id="password" name="password" type="password"
-                            class="mt-2 w-full rounded-2xl border border-gray-200 bg-gray-50 px-4 py-3 text-gray-900 focus:border-rose-400 focus:outline-none focus:ring-2 focus:ring-rose-200"
-                            placeholder="Leave blank to keep current password">
-                        @error('password')
-                            <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
-                        @enderror
-                    </div>
-
-                    <div>
-                        <label for="password_confirmation" class="block text-sm font-medium text-gray-700">Confirm password</label>
-                        <input id="password_confirmation" name="password_confirmation" type="password"
-                            class="mt-2 w-full rounded-2xl border border-gray-200 bg-gray-50 px-4 py-3 text-gray-900 focus:border-rose-400 focus:outline-none focus:ring-2 focus:ring-rose-200">
-                    </div>
+                <div>
+                    <label for="phone" class="block text-sm font-medium text-gray-700">Phone (optional)</label>
+                    <input type="text" id="phone" name="phone" value="{{ old('phone', $user->phone) }}"
+                        class="mt-1 block w-full rounded-lg border-gray-300 focus:border-black focus:ring-black">
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
-                    <div>
-                        <label for="profile_photo" class="block text-sm font-medium text-gray-700">Profile picture</label>
-                        <input id="profile_photo" name="profile_photo" type="file" accept="image/*"
-                            class="mt-2 w-full rounded-2xl border border-dashed border-rose-200 bg-white px-4 py-3 text-gray-900 focus:border-rose-400 focus:outline-none focus:ring-2 focus:ring-rose-200">
-                        @error('profile_photo')
-                            <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
-                        @enderror
-                    </div>
-                    <div class="flex items-center gap-4">
-                        <div class="h-16 w-16 rounded-full overflow-hidden border border-gray-200">
-                            <img src="{{ $user->profile_photo_url }}" alt="Preview" class="h-full w-full object-cover">
-                        </div>
-                        <p class="text-sm text-gray-500">Upload a square image (max 2 MB). White circle is used by default.</p>
-                    </div>
+                <div>
+                    <label for="address" class="block text-sm font-medium text-gray-700">Address (optional)</label>
+                    <input type="text" id="address" name="address" value="{{ old('address', $user->address) }}"
+                        class="mt-1 block w-full rounded-lg border-gray-300 focus:border-black focus:ring-black">
                 </div>
+            </div>
 
-                <div class="pt-4 flex justify-end">
-                    <button type="submit" class="inline-flex items-center gap-2 rounded-full bg-rose-500 px-8 py-3 text-white font-semibold shadow hover:bg-rose-400 focus:outline-none focus:ring-2 focus:ring-rose-200">
-                        Save changes
-                    </button>
-                </div>
-            </form>
-        </div>
+            <div>
+                <label for="bio" class="block text-sm font-medium text-gray-700">Bio (optional)</label>
+                <textarea id="bio" name="bio" rows="4" class="mt-1 block w-full rounded-lg border-gray-300 focus:border-black focus:ring-black">{{ old('bio', $user->bio) }}</textarea>
+            </div>
 
-        <div class="px-8 pb-10">
-            <form method="POST" action="{{ route('logout') }}" class="flex justify-center">
-                @csrf
-                <button type="submit" class="inline-flex items-center justify-center rounded-full border-2 border-red-500 px-10 py-3 text-red-500 font-semibold hover:bg-red-50 transition">
-                    Log out
+            <div>
+                <label for="profile_photo" class="block text-sm font-medium text-gray-700">Profile photo (optional)</label>
+                <input type="file" id="profile_photo" name="profile_photo" accept="image/*"
+                    class="mt-1 block w-full text-sm text-gray-700 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-black file:text-white hover:file:bg-gray-800">
+                @if ($user->profile_photo_path)
+                    <p class="mt-2 text-sm text-gray-500">Current photo stored in your library.</p>
+                @endif
+            </div>
+
+            <div class="flex justify-end">
+                <button type="submit" class="px-6 py-2 bg-black text-white rounded-full font-semibold hover:bg-gray-900">
+                    Save changes
                 </button>
-            </form>
-        </div>
+            </div>
+        </form>
+
+        <form action="{{ route('logout') }}" method="POST" class="pt-4 border-t border-gray-200">
+            @csrf
+            <button type="submit"
+                class="mt-4 inline-flex items-center justify-center px-6 py-2 border-2 border-red-500 text-red-500 font-semibold rounded-full transition hover:bg-red-500 hover:text-white">
+                Log out
+            </button>
+        </form>
     </div>
 </div>
 @endsection

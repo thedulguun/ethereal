@@ -37,6 +37,12 @@ Route::redirect('/home', '/account')->name('home');
 
 Auth::routes();
 
+Route::middleware('auth')->group(function () {
+    Route::get('/home', [HomeController::class, 'index'])->name('home');
+    Route::get('/account', [AccountController::class, 'edit'])->name('account.edit');
+    Route::put('/account', [AccountController::class, 'update'])->name('account.update');
+});
+
 // Route::post('/contact', function (Request $request) {
 //     $validated = $request->validate([
 //         'name' => 'required|max:255',

@@ -23,9 +23,13 @@ class User extends Authenticatable
         'username',
         'email',
         'password',
-        'date_of_birth',
+        'phone',
+        'address',
         'home_address',
+        'bio',
         'profile_photo_path',
+        'date_of_birth',
+        'profile_details_updated_at',
     ];
 
     /**
@@ -49,6 +53,8 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'date_of_birth' => 'date',
             'password' => 'hashed',
+            'date_of_birth' => 'date',
+            'profile_details_updated_at' => 'datetime',
         ];
     }
 
@@ -58,6 +64,6 @@ class User extends Authenticatable
             return Storage::disk('public')->url($this->profile_photo_path);
         }
 
-        return asset('images/default-avatar.svg');
+        return asset('images/white-circle.svg');
     }
 }

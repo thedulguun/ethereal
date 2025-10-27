@@ -17,7 +17,12 @@ class DatabaseSeeder extends Seeder
 
         User::factory()->create([
             'name' => 'Test User',
+            'username' => 'testuser',
             'email' => 'test@example.com',
+            'date_of_birth' => '1990-01-01',
+            'home_address' => null,
+            'profile_photo_path' => 'images/white-circle.svg',
+            'profile_details_updated_at' => now(),
         ]);
     }
 }

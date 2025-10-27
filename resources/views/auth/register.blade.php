@@ -1,57 +1,60 @@
-@extends('layouts.app')
+<!DOCTYPE html>
+<html lang="en">
 
-@section('content')
-<div class="min-h-[80vh] bg-gradient-to-tr from-pink-100 via-white to-rose-100 py-16">
-    <div class="mx-auto max-w-md rounded-3xl bg-white/95 p-10 shadow-2xl backdrop-blur">
-        <h1 class="mb-2 text-center text-3xl font-semibold text-gray-900">Create your Ethereal account</h1>
-        <p class="mb-8 text-center text-gray-500">Just a few details to get started. You can add the rest later.</p>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Signup</title>
+  @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+</head>
 
-        <form action="{{ route('register') }}" method="POST" class="space-y-6">
-            @csrf
+<body class="bg-gray-100 h-screen flex items-center justify-center">
+  <div class="relative bg-gray-50 w-full h-full flex items-center justify-center">
+    <img src="/images/background2.jpg" alt="Background Image" class="absolute inset-0 w-full h-full object-cover opacity-50">
 
-            <div>
-                <label for="name" class="block text-sm font-medium text-gray-700">Full name *</label>
-                <input id="name" name="name" type="text" value="{{ old('name') }}" required autofocus
-                    class="mt-2 w-full rounded-2xl border border-gray-200 bg-gray-50 px-4 py-3 text-gray-900 focus:border-rose-400 focus:outline-none focus:ring-2 focus:ring-rose-200">
-                @error('name')
-                    <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
-                @enderror
-            </div>
+    <div class="relative z-10 bg-red-50 p-8 rounded-lg shadow-lg w-96">
+      <h2 class="text-2xl font-semibold text-center mb-6">Sign Up</h2>
+      <form action="{{route('register')}}" method="POST">
+        @csrf
+        <div class="mb-4">
+          <label for="name" class="block text-sm font-medium text-gray-700">Username</label>
+          <input type="text" id="name" name="name" value="{{ old('name') }}" required class="mt-1 block w-full px-4 py-2 border border-pink-500 rounded-md shadow-sm focus:border-pink-300" />
+          @error('name')
+            <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+          @enderror
+        </div>
 
-            <div>
-                <label for="email" class="block text-sm font-medium text-gray-700">Email address *</label>
-                <input id="email" name="email" type="email" value="{{ old('email') }}" required
-                    class="mt-2 w-full rounded-2xl border border-gray-200 bg-gray-50 px-4 py-3 text-gray-900 focus:border-rose-400 focus:outline-none focus:ring-2 focus:ring-rose-200">
-                @error('email')
-                    <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
-                @enderror
-            </div>
+        <div class="mb-4">
+          <label for="email" class="block text-sm font-medium text-gray-700">Email Address</label>
+          <input type="email" id="email" name="email" value="{{ old('email') }}" required class="mt-1 block w-full px-4 py-2 border border-pink-50 rounded-md shadow-sm focus:border-pink-300" />
+          @error('email')
+            <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+          @enderror
+        </div>
 
-            <div>
-                <label for="password" class="block text-sm font-medium text-gray-700">Password *</label>
-                <input id="password" name="password" type="password" required
-                    class="mt-2 w-full rounded-2xl border border-gray-200 bg-gray-50 px-4 py-3 text-gray-900 focus:border-rose-400 focus:outline-none focus:ring-2 focus:ring-rose-200">
-                @error('password')
-                    <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
-                @enderror
-            </div>
+        <div class="mb-4">
+          <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
+          <input type="password" id="password" name="password" required class="mt-1 block w-full px-4 py-2 border border-pink-50 rounded-md shadow-sm focus:border-pink-300" />
+          @error('password')
+            <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+          @enderror
+        </div>
 
-            <div>
-                <label for="password_confirmation" class="block text-sm font-medium text-gray-700">Confirm password *</label>
-                <input id="password_confirmation" name="password_confirmation" type="password" required
-                    class="mt-2 w-full rounded-2xl border border-gray-200 bg-gray-50 px-4 py-3 text-gray-900 focus:border-rose-400 focus:outline-none focus:ring-2 focus:ring-rose-200">
-            </div>
+        <div class="mb-6">
+          <label for="password_confirmation" class="block text-sm font-medium text-gray-700">Confirm Password</label>
+          <input type="password" id="password_confirmation" name="password_confirmation" required class="mt-1 block w-full px-4 py-2 border border-pink-50 rounded-md shadow-sm focus:border-pink-300" />
+          @error('password_confirmation')
+            <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+          @enderror
+        </div>
 
-            <button type="submit"
-                class="w-full rounded-full bg-rose-500 py-3 text-white font-semibold shadow-lg shadow-rose-200 transition hover:bg-rose-400 focus:outline-none focus:ring-2 focus:ring-rose-200">
-                Sign up
-            </button>
-        </form>
+        <button type="submit" class="w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">Sign Up</button>
+      </form>
 
-        <p class="mt-8 text-center text-sm text-gray-600">
-            Already have an account?
-            <a href="{{ route('login') }}" class="font-medium text-rose-500 hover:text-rose-400">Log in</a>
-        </p>
+      <p class="mt-4 text-center text-sm text-gray-600">Already have an account? <a href="/login" class="text-blue-500 hover:underline">Log in</a></p>
     </div>
-</div>
-@endsection
+
+  </div>
+</body>
+
+</html>
