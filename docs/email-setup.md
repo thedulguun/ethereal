@@ -5,7 +5,7 @@ The contact form now uses Laravel's mailer to send real emails to the configured
 ## 1. Generate a Gmail App Password
 1. Enable two-factor authentication on the Gmail account that should send the messages.
 2. Visit <https://myaccount.google.com/apppasswords> and create a new "Mail" app password for "Other (Custom name)" (for example, `Ethereal Contact Form`).
-3. Copy the 16-character password Google generates—you will paste it into the project `.env` file.
+3. Copy the 16-character password Google generates—you will paste it into the project `.env` file. Google shows the password with spaces for readability; when you add it to `.env` you can omit the spaces or leave them in (the application will strip them automatically).
 
 > **Note:** Google does not allow using your primary account password for SMTP connections. An app password (or a dedicated workspace account) is required.
 
