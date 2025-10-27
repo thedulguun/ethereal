@@ -1,5 +1,7 @@
 <?php
 
+$mailPassword = env('MAIL_PASSWORD');
+
 return [
 
     /*
@@ -14,7 +16,7 @@ return [
     |
     */
 
-    'default' => env('MAIL_MAILER', 'log'),
+    'default' => env('MAIL_MAILER', 'smtp'),
 
     /*
     |--------------------------------------------------------------------------
@@ -44,7 +46,11 @@ return [
             'port' => env('MAIL_PORT', 2525),
             'encryption' => env('MAIL_ENCRYPTION', 'tls'),
             'username' => env('MAIL_USERNAME'),
-            'password' => env('MAIL_PASSWORD'),
+            'password' => match (true) {
+                $mailPassword === null => null,
+                is_string($mailPassword) => preg_replace('/\s+/', '', $mailPassword),
+                default => $mailPassword,
+            },
             'timeout' => null,
             'local_domain' => env('MAIL_EHLO_DOMAIN', parse_url(env('APP_URL', 'http://localhost'), PHP_URL_HOST)),
         ],
@@ -112,5 +118,7 @@ return [
         'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
         'name' => env('MAIL_FROM_NAME', 'Example'),
     ],
+
+    'owner_address' => env('MAIL_OWNER_ADDRESS', env('MAIL_FROM_ADDRESS')),
 
 ];
