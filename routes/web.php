@@ -28,6 +28,13 @@ Route::get('/productpage', [App\Http\Controllers\HomeController::class, 'product
 
 Route::get('/product/{id}', [HomeController::class, 'detailProduct'])->name('product1');
 
+Route::middleware('auth')->group(function () {
+    Route::get('/account', [AccountController::class, 'edit'])->name('account.edit');
+    Route::put('/account', [AccountController::class, 'update'])->name('account.update');
+});
+
+Route::redirect('/home', '/account')->name('home');
+
 Auth::routes();
 
 Route::middleware('auth')->group(function () {
@@ -50,4 +57,3 @@ Route::middleware('auth')->group(function () {
 //     return back()->with('success', 'Your message has been sent successfully!');
 // })->name('contact.submit');
 
-?>
