@@ -3,7 +3,16 @@
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\ContactController;
 
+// GET /contact → show the form
+Route::view('/contact', 'contact')->name('contact.show');
+
+// POST /contact → handle the submission
+Route::post('/contact', [ContactController::class, 'send'])
+    ->middleware('throttle:6,1')   // optional: at most 6 posts/min per IP
+    ->name('contact.send');
+    
 Route::get('/', [HomeController::class, 'welcome']);
 
 Route::get('/about', function () {
