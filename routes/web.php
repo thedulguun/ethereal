@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AccountController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
@@ -28,6 +29,11 @@ Route::get('/productpage', [App\Http\Controllers\HomeController::class, 'product
 Route::get('/product/{id}', [HomeController::class, 'detailProduct'])->name('product1');
 
 Auth::routes();
+
+Route::middleware('auth')->group(function () {
+    Route::get('/account', [AccountController::class, 'edit'])->name('account.edit');
+    Route::put('/account', [AccountController::class, 'update'])->name('account.update');
+});
 
 // Route::post('/contact', function (Request $request) {
 //     $validated = $request->validate([
