@@ -31,6 +31,7 @@ Route::get('/product/{id}', [HomeController::class, 'detailProduct'])->name('pro
 Auth::routes();
 
 Route::middleware('auth')->group(function () {
+    Route::get('/home', [HomeController::class, 'index'])->name('home');
     Route::get('/account', [AccountController::class, 'edit'])->name('account.edit');
     Route::put('/account', [AccountController::class, 'update'])->name('account.update');
 });
