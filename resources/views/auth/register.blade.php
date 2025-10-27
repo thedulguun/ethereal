@@ -18,22 +18,34 @@
         @csrf
         <div class="mb-4">
           <label for="name" class="block text-sm font-medium text-gray-700">Username</label>
-          <input type="text" id="name" name="name" required class="mt-1 block w-full px-4 py-2 border border-pink-500 rounded-md shadow-sm  focus:border-pink-300" />
+          <input type="text" id="name" name="name" value="{{ old('name') }}" required class="mt-1 block w-full px-4 py-2 border border-pink-500 rounded-md shadow-sm focus:border-pink-300" />
+          @error('name')
+            <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+          @enderror
         </div>
 
         <div class="mb-4">
           <label for="email" class="block text-sm font-medium text-gray-700">Email Address</label>
-          <input type="email" id="email" name="email" required class="mt-1 block w-full px-4 py-2 border border-pink-50 rounded-md shadow-sm focus:border-pink-300" />
+          <input type="email" id="email" name="email" value="{{ old('email') }}" required class="mt-1 block w-full px-4 py-2 border border-pink-50 rounded-md shadow-sm focus:border-pink-300" />
+          @error('email')
+            <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+          @enderror
         </div>
 
         <div class="mb-4">
           <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
           <input type="password" id="password" name="password" required class="mt-1 block w-full px-4 py-2 border border-pink-50 rounded-md shadow-sm focus:border-pink-300" />
+          @error('password')
+            <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+          @enderror
         </div>
 
         <div class="mb-6">
-          <label for="confirm-password" class="block text-sm font-medium text-gray-700">Confirm Password</label>
-          <input type="password" id="confirm-password" name="confirm-password" required class="mt-1 block w-full px-4 py-2 border border-pink-50 rounded-md shadow-sm  focus:border-pink-300" />
+          <label for="password_confirmation" class="block text-sm font-medium text-gray-700">Confirm Password</label>
+          <input type="password" id="password_confirmation" name="password_confirmation" required class="mt-1 block w-full px-4 py-2 border border-pink-50 rounded-md shadow-sm focus:border-pink-300" />
+          @error('password_confirmation')
+            <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+          @enderror
         </div>
 
         <button type="submit" class="w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">Sign Up</button>
@@ -44,3 +56,5 @@
 
   </div>
 </body>
+
+</html>
