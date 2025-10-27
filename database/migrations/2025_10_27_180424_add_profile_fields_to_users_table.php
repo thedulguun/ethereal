@@ -15,7 +15,6 @@ return new class extends Migration
             $table->string('phone')->nullable()->after('password');
             $table->string('address')->nullable()->after('phone');
             $table->text('bio')->nullable()->after('address');
-            $table->string('profile_photo_path')->nullable()->after('bio');
         });
     }
 
@@ -29,7 +28,6 @@ return new class extends Migration
                 'phone',
                 'address',
                 'bio',
-                'profile_photo_path',
             ]);
         });
     }
