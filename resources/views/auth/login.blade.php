@@ -1,53 +1,56 @@
-<?php
+@extends('layouts.app')
 
-$error = isset($error) ? $error : '';
-?>
+@section('content')
+<div class="min-h-[80vh] bg-gradient-to-br from-rose-100 via-white to-pink-100 py-16">
+    <div class="mx-auto max-w-md rounded-3xl bg-white/90 p-10 shadow-2xl backdrop-blur">
+        <h1 class="mb-2 text-center text-3xl font-semibold text-gray-900">Welcome back</h1>
+        <p class="mb-8 text-center text-gray-500">Sign in with your email address to reach your account.</p>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-gray-100 h-screen flex items-center justify-center">
+        @if (session('status'))
+            <div class="mb-6 rounded-2xl border border-emerald-200 bg-emerald-50 px-4 py-3 text-emerald-700">
+                {{ session('status') }}
+            </div>
+        @endif
 
-    <div class="relative bg-gray-50 w-full h-full flex items-center justify-center">
-        <img src="/images/background1.jpg" alt="Background Image" class="absolute inset-0 w-full h-full object-cover opacity-50">
+        <form method="POST" action="{{ route('login') }}" class="space-y-6">
+            @csrf
 
-        <div class="relative z-10 bg-white p-8 rounded-lg shadow-lg w-96">
-            <h2 class="text-3xl font-semibold text-center text-gray-700 mb-6">Login</h2>
-
-            <?php if (!empty($error)): ?>
-                <div class="bg-red-200 text-red-800 p-4 rounded-lg mb-4"> <?php echo htmlspecialchars($error); ?> </div>
-            <?php endif; ?>
-
-            <form method="POST" action="login.php">
-                <div class="mb-4">
-                    <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
-                    <input type="email" name="email" id="email" required 
-                           class="w-full border border-gray-300 focus:ring-blue-500 focus:border-blue-500 px-4 py-2 mt-1 bg-gray-100 rounded-md shadow-sm focus:outline-none">
-                </div>
-
-                <div class="mb-6">
-                    <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
-                    <input type="password" name="password" id="password" required 
-                           class="w-full border border-gray-300 focus:ring-blue-500 focus:border-blue-500 px-4 py-2 mt-1 bg-gray-100 rounded-md shadow-sm focus:outline-none">
-                </div>
-
-                <button type="submit" class="w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-500">
-                    Sign In
-                </button>
-            </form>
-
-            <div class="mt-4 text-center text-sm">
-                <a href="#" class="text-blue-500 hover:underline">Forgot your password?</a>
+            <div>
+                <label for="email" class="block text-sm font-medium text-gray-700">Email address</label>
+                <input id="email" name="email" type="email" value="{{ old('email') }}" required autofocus
+                    class="mt-2 w-full rounded-2xl border border-gray-200 bg-gray-50 px-4 py-3 text-gray-900 focus:border-rose-400 focus:outline-none focus:ring-2 focus:ring-rose-200">
+                @error('email')
+                    <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+                @enderror
             </div>
 
-            <p class="mt-4 text-center text-sm">Don't have an account? <a href="/register" class="text-blue-500 hover:underline">Sign up!</a></p>
-        </div>
-    </div>
+            <div>
+                <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
+                <input id="password" name="password" type="password" required
+                    class="mt-2 w-full rounded-2xl border border-gray-200 bg-gray-50 px-4 py-3 text-gray-900 focus:border-rose-400 focus:outline-none focus:ring-2 focus:ring-rose-200">
+                @error('password')
+                    <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+                @enderror
+            </div>
 
-</body>
-</html>
+            <div class="flex items-center justify-between text-sm">
+                <label class="inline-flex items-center gap-2 text-gray-600">
+                    <input type="checkbox" name="remember" class="rounded border-gray-300 text-rose-500 focus:ring-rose-400" {{ old('remember') ? 'checked' : '' }}>
+                    Remember me
+                </label>
+                <a href="{{ route('password.request') }}" class="font-medium text-rose-500 hover:text-rose-400">Forgot password?</a>
+            </div>
+
+            <button type="submit"
+                class="w-full rounded-full bg-rose-500 py-3 text-white font-semibold shadow-lg shadow-rose-200 transition hover:bg-rose-400 focus:outline-none focus:ring-2 focus:ring-rose-200">
+                Sign in
+            </button>
+        </form>
+
+        <p class="mt-8 text-center text-sm text-gray-600">
+            Don't have an account?
+            <a href="{{ route('register') }}" class="font-medium text-rose-500 hover:text-rose-400">Create one</a>
+        </p>
+    </div>
+</div>
+@endsection
