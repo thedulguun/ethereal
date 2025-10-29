@@ -3,6 +3,7 @@
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProfilePhotoController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -28,18 +29,19 @@ Route::get('/productpage', [App\Http\Controllers\HomeController::class, 'product
 
 Route::get('/product/{id}', [HomeController::class, 'detailProduct'])->name('product1');
 
-Route::middleware('auth')->group(function () {
-    Route::get('/account', [AccountController::class, 'edit'])->name('account.edit');
-    Route::put('/account', [AccountController::class, 'update'])->name('account.update');
-});
-
-Route::redirect('/home', '/account')->name('home');
+Route::get('/storage/{path}', [ProfilePhotoController::class, 'show'])
+    ->where('path', '.*')
+    ->name('storage.files.show');
 
 Auth::routes();
 
 Route::middleware('auth')->group(function () {
-    Route::get('/home', [HomeController::class, 'index'])->name('home');
-    Route::get('/account', [AccountController::class, 'edit'])->name('account.edit');
+    Route::get('/home', [AccountController::class, 'edit'])->name('account.edit');
+
+    Route::get('/account', function () {
+        return redirect()->route('account.edit');
+    });
+
     Route::put('/account', [AccountController::class, 'update'])->name('account.update');
 });
 
