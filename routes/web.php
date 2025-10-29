@@ -33,6 +33,13 @@ Route::get('/storage/{path}', [ProfilePhotoController::class, 'show'])
     ->where('path', '.*')
     ->name('storage.files.show');
 
+Route::middleware('auth')->group(function () {
+    Route::get('/account', [AccountController::class, 'edit'])->name('account.edit');
+    Route::put('/account', [AccountController::class, 'update'])->name('account.update');
+});
+
+Route::redirect('/home', '/account')->name('home');
+
 Auth::routes();
 
 Route::middleware('auth')->group(function () {
