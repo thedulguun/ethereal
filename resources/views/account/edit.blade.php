@@ -39,8 +39,21 @@
                 </div>
 
                 <div>
+                    <label for="username" class="block text-sm font-medium text-gray-700">Username (optional)</label>
+                    <input type="text" id="username" name="username" value="{{ old('username', $user->username) }}"
+                        class="mt-1 block w-full rounded-lg border-gray-300 focus:border-black focus:ring-black">
+                </div>
+
+                <div>
                     <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
                     <input type="email" id="email" name="email" value="{{ old('email', $user->email) }}" required
+                        class="mt-1 block w-full rounded-lg border-gray-300 focus:border-black focus:ring-black">
+                </div>
+
+                <div>
+                    <label for="date_of_birth" class="block text-sm font-medium text-gray-700">Date of birth (optional)</label>
+                    <input type="date" id="date_of_birth" name="date_of_birth"
+                        value="{{ old('date_of_birth', optional($user->date_of_birth)->format('Y-m-d')) }}"
                         class="mt-1 block w-full rounded-lg border-gray-300 focus:border-black focus:ring-black">
                 </div>
 
@@ -51,7 +64,13 @@
                 </div>
 
                 <div>
-                    <label for="address" class="block text-sm font-medium text-gray-700">Address (optional)</label>
+                    <label for="home_address" class="block text-sm font-medium text-gray-700">Home address (optional)</label>
+                    <input type="text" id="home_address" name="home_address" value="{{ old('home_address', $user->home_address) }}"
+                        class="mt-1 block w-full rounded-lg border-gray-300 focus:border-black focus:ring-black">
+                </div>
+
+                <div class="md:col-span-2">
+                    <label for="address" class="block text-sm font-medium text-gray-700">Mailing address (optional)</label>
                     <input type="text" id="address" name="address" value="{{ old('address', $user->address) }}"
                         class="mt-1 block w-full rounded-lg border-gray-300 focus:border-black focus:ring-black">
                 </div>
@@ -69,6 +88,20 @@
                 @if ($user->profile_photo_path)
                     <p class="mt-2 text-sm text-gray-500">Current photo stored in your library.</p>
                 @endif
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <label for="password" class="block text-sm font-medium text-gray-700">New password (optional)</label>
+                    <input type="password" id="password" name="password"
+                        class="mt-1 block w-full rounded-lg border-gray-300 focus:border-black focus:ring-black" autocomplete="new-password">
+                </div>
+
+                <div>
+                    <label for="password_confirmation" class="block text-sm font-medium text-gray-700">Confirm new password</label>
+                    <input type="password" id="password_confirmation" name="password_confirmation"
+                        class="mt-1 block w-full rounded-lg border-gray-300 focus:border-black focus:ring-black" autocomplete="new-password">
+                </div>
             </div>
 
             <div class="flex justify-end">

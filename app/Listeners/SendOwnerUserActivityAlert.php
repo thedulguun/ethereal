@@ -3,6 +3,7 @@
 namespace App\Listeners;
 
 use App\Mail\UserActivityAlert;
+use App\Models\User;
 use Illuminate\Auth\Events\Login;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Contracts\Auth\Authenticatable;
@@ -22,7 +23,7 @@ class SendOwnerUserActivityAlert
     {
         $ownerAddress = config('mail.owner_address');
 
-        if (empty($ownerAddress)) {
+        if ($ownerAddress === '') {
             return;
         }
 
