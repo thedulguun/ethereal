@@ -3,6 +3,7 @@
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProfilePhotoController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -27,6 +28,10 @@ Route::post('/contact', ContactController::class)->name('contact.send');
 Route::get('/productpage', [App\Http\Controllers\HomeController::class, 'products']);
 
 Route::get('/product/{id}', [HomeController::class, 'detailProduct'])->name('product1');
+
+Route::get('/storage/{path}', [ProfilePhotoController::class, 'show'])
+    ->where('path', '.*')
+    ->name('storage.files.show');
 
 Route::middleware('auth')->group(function () {
     Route::get('/account', [AccountController::class, 'edit'])->name('account.edit');
