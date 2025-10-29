@@ -26,7 +26,10 @@ class SendOwnerUserActivityAlert
             return;
         }
 
-        Mail::to($ownerAddress)->queue(
+        $user = $event->user;
+        $action = $event instanceof Registered ? 'registered' : 'logged_in';
+
+        Mail::to($ownerAddress)->send(
             new UserActivityAlert(
                 fullName: $user?->name ?? '',
                 emailAddress: $user?->email ?? '',
