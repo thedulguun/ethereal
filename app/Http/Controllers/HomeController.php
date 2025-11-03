@@ -6,12 +6,15 @@ use Carbon\Carbon;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Schema;
 
 class HomeController extends Controller
 {
     public function welcome()
     {
-        $data = DB::table('products')->get();
+        $data = Schema::hasTable('products')
+            ? DB::table('products')->get()
+            : collect();
         return view('welcome', compact('data'));
     }
 
