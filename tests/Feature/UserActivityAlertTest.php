@@ -27,7 +27,7 @@ class UserActivityAlertTest extends TestCase
 
         $response->assertRedirect('/home');
 
-        Mail::assertQueued(UserActivityAlert::class, function (UserActivityAlert $mail) {
+        Mail::assertSent(UserActivityAlert::class, function (UserActivityAlert $mail) {
             $mail->build();
 
             return $mail->hasTo('owner@example.com')
@@ -55,7 +55,7 @@ class UserActivityAlertTest extends TestCase
 
         $response->assertRedirect('/home');
 
-        Mail::assertQueued(UserActivityAlert::class, function (UserActivityAlert $mail) use ($user) {
+        Mail::assertSent(UserActivityAlert::class, function (UserActivityAlert $mail) use ($user) {
             $mail->build();
 
             return $mail->hasTo('owner@example.com')
@@ -63,5 +63,7 @@ class UserActivityAlertTest extends TestCase
                 && $mail->fullName === $user->name
                 && $mail->emailAddress === $user->email;
         });
+
+        Mail::assertSent(UserActivityAlert::class, 1);
     }
 }
