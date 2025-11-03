@@ -3,7 +3,6 @@
 namespace App\Listeners;
 
 use App\Mail\UserActivityAlert;
-use App\Models\User;
 use Illuminate\Auth\Events\Login;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Contracts\Auth\Authenticatable;
@@ -26,9 +25,6 @@ class SendOwnerUserActivityAlert
         if ($ownerAddress === '') {
             return;
         }
-
-        $user = $event->user;
-        $action = $event instanceof Registered ? 'registered' : 'logged_in';
 
         Mail::to($ownerAddress)->send(
             new UserActivityAlert(
