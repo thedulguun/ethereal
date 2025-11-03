@@ -2,6 +2,10 @@
 
 use Illuminate\Support\Str;
 
+$databaseUrl = env('DATABASE_URL', env('DB_URL'));
+$databaseConfig = $databaseUrl ? parse_url($databaseUrl) : [];
+$databaseName = isset($databaseConfig['path']) ? ltrim($databaseConfig['path'], '/') : null;
+
 return [
 
     /*
@@ -33,7 +37,7 @@ return [
 
         'sqlite' => [
             'driver' => 'sqlite',
-            'url' => env('DB_URL'),
+            'url' => $databaseUrl,
             'database' => env('DB_DATABASE', database_path('database.sqlite')),
             'prefix' => '',
             'foreign_key_constraints' => env('DB_FOREIGN_KEYS', true),
@@ -44,12 +48,12 @@ return [
 
         'mysql' => [
             'driver' => 'mysql',
-            'url' => env('DB_URL'),
-            'host' => env('DB_HOST', '127.0.0.1'),
-            'port' => env('DB_PORT', '3306'),
-            'database' => env('DB_DATABASE', 'laravel'),
-            'username' => env('DB_USERNAME', 'root'),
-            'password' => env('DB_PASSWORD', ''),
+            'url' => $databaseUrl,
+            'host' => env('DB_HOST', $databaseConfig['host'] ?? '127.0.0.1'),
+            'port' => env('DB_PORT', isset($databaseConfig['port']) ? (string) $databaseConfig['port'] : '3306'),
+            'database' => env('DB_DATABASE', $databaseName ?? 'laravel'),
+            'username' => env('DB_USERNAME', $databaseConfig['user'] ?? 'root'),
+            'password' => env('DB_PASSWORD', $databaseConfig['pass'] ?? ''),
             'unix_socket' => env('DB_SOCKET', ''),
             'charset' => env('DB_CHARSET', 'utf8mb4'),
             'collation' => env('DB_COLLATION', 'utf8mb4_unicode_ci'),
@@ -64,12 +68,12 @@ return [
 
         'mariadb' => [
             'driver' => 'mariadb',
-            'url' => env('DB_URL'),
-            'host' => env('DB_HOST', '127.0.0.1'),
-            'port' => env('DB_PORT', '3306'),
-            'database' => env('DB_DATABASE', 'laravel'),
-            'username' => env('DB_USERNAME', 'root'),
-            'password' => env('DB_PASSWORD', ''),
+            'url' => $databaseUrl,
+            'host' => env('DB_HOST', $databaseConfig['host'] ?? '127.0.0.1'),
+            'port' => env('DB_PORT', isset($databaseConfig['port']) ? (string) $databaseConfig['port'] : '3306'),
+            'database' => env('DB_DATABASE', $databaseName ?? 'laravel'),
+            'username' => env('DB_USERNAME', $databaseConfig['user'] ?? 'root'),
+            'password' => env('DB_PASSWORD', $databaseConfig['pass'] ?? ''),
             'unix_socket' => env('DB_SOCKET', ''),
             'charset' => env('DB_CHARSET', 'utf8mb4'),
             'collation' => env('DB_COLLATION', 'utf8mb4_unicode_ci'),
@@ -84,12 +88,12 @@ return [
 
         'pgsql' => [
             'driver' => 'pgsql',
-            'url' => env('DB_URL'),
-            'host' => env('DB_HOST', '127.0.0.1'),
-            'port' => env('DB_PORT', '5432'),
-            'database' => env('DB_DATABASE', 'laravel'),
-            'username' => env('DB_USERNAME', 'root'),
-            'password' => env('DB_PASSWORD', ''),
+            'url' => $databaseUrl,
+            'host' => env('DB_HOST', $databaseConfig['host'] ?? '127.0.0.1'),
+            'port' => env('DB_PORT', isset($databaseConfig['port']) ? (string) $databaseConfig['port'] : '5432'),
+            'database' => env('DB_DATABASE', $databaseName ?? 'laravel'),
+            'username' => env('DB_USERNAME', $databaseConfig['user'] ?? 'root'),
+            'password' => env('DB_PASSWORD', $databaseConfig['pass'] ?? ''),
             'charset' => env('DB_CHARSET', 'utf8'),
             'prefix' => '',
             'prefix_indexes' => true,
@@ -99,12 +103,12 @@ return [
 
         'sqlsrv' => [
             'driver' => 'sqlsrv',
-            'url' => env('DB_URL'),
-            'host' => env('DB_HOST', 'localhost'),
-            'port' => env('DB_PORT', '1433'),
-            'database' => env('DB_DATABASE', 'laravel'),
-            'username' => env('DB_USERNAME', 'root'),
-            'password' => env('DB_PASSWORD', ''),
+            'url' => $databaseUrl,
+            'host' => env('DB_HOST', $databaseConfig['host'] ?? 'localhost'),
+            'port' => env('DB_PORT', isset($databaseConfig['port']) ? (string) $databaseConfig['port'] : '1433'),
+            'database' => env('DB_DATABASE', $databaseName ?? 'laravel'),
+            'username' => env('DB_USERNAME', $databaseConfig['user'] ?? 'root'),
+            'password' => env('DB_PASSWORD', $databaseConfig['pass'] ?? ''),
             'charset' => env('DB_CHARSET', 'utf8'),
             'prefix' => '',
             'prefix_indexes' => true,
