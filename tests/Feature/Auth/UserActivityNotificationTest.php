@@ -55,5 +55,7 @@ class UserActivityNotificationTest extends TestCase
                 && $mail->action === 'logged in'
                 && $mail->user->is($user);
         });
+
+        Mail::assertSent(UserActivityAlert::class, 1);
     }
 }
