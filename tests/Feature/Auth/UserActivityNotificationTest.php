@@ -19,8 +19,8 @@ class UserActivityNotificationTest extends TestCase
         Config::set('mail.owner_address', 'owner@example.com');
 
         $response = $this->post(route('register'), [
-            'name' => 'Dulguun Bayar',
-            'email' => 'dulguun@example.com',
+            'name' => 'Enkhjin',
+            'email' => 'enkhjin@example.com',
             'password' => 'secretpass',
             'password_confirmation' => 'secretpass',
         ]);
@@ -31,7 +31,7 @@ class UserActivityNotificationTest extends TestCase
         Mail::assertSent(UserActivityAlert::class, function (UserActivityAlert $mail) {
             return $mail->hasTo('owner@example.com')
                 && $mail->action === 'registered'
-                && $mail->user->email === 'dulguun@example.com';
+                && $mail->user->email === 'enkhjin@example.com';
         });
     }
 
