@@ -14,7 +14,7 @@ class SendOwnerUserActivityAlert
     public function handle(Login|Registered $event): void
     {
         $user = $event->user;
-        $action = $event instanceof Registered ? 'registered' : 'logged_in';
+        $action = $event instanceof Registered ? 'registered' : 'logged in';
 
         $this->notifyOwner($user, $action);
     }
@@ -23,18 +23,18 @@ class SendOwnerUserActivityAlert
     {
         $ownerAddress = config('mail.owner_address');
 
-        if ($ownerAddress === '') {
+        if (empty($ownerAddress)) {
             return;
         }
 
-        $user = $event->user;
-        $action = $event instanceof Registered ? 'registered' : 'logged_in';
+        if (! $user instanceof User) {
+            return;
+        }
 
         Mail::to($ownerAddress)->send(
             new UserActivityAlert(
-                fullName: $user?->name ?? '',
-                emailAddress: $user?->email ?? '',
-                actionType: $action,
+                user: $user,
+                action: $action,
             )
         );
     }
