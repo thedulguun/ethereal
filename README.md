@@ -61,6 +61,28 @@ In order to ensure that the Laravel community is welcoming to all, please review
 
 If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
 
+## Sprint Arc (FastAPI demo runner)
+
+This repository now includes a self-contained FastAPI + canvas prototype for a mobile-friendly skill runner demo.
+
+### Run it locally
+
+1. Create a virtual environment and install dependencies:
+
+   ```bash
+   python -m venv venv
+   source venv/bin/activate
+   pip install -r requirements.txt
+   ```
+
+2. Start the FastAPI server (serves the API and the game UI):
+
+   ```bash
+   uvicorn fastapi_app.main:app --reload --port 8000
+   ```
+
+3. Open http://localhost:8000/ in your browser. The UI is portrait-first and fully touch/keyboard friendly.
+
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).

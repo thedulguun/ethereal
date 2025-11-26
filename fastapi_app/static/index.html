@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sprint Arc</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <div class="bg-grid"></div>
+  <div class="app-shell">
+    <div class="brand">Sprint Arc</div>
+    <div class="phone-frame">
+      <div class="status-bar">
+        <div id="sessionUser" class="pill">Guest</div>
+        <div id="sessionBalance" class="pill">0 ARD</div>
+        <div class="pill ghost" id="sessionMode">Welcome</div>
+      </div>
+      <div class="screens">
+        <section id="loginScreen" class="screen active">
+          <div class="hero">
+            <div class="badge">Skill-based runner</div>
+            <h1>Time your jumps. Win the lobby.</h1>
+            <p>Charge, release, and glide through lethal rhythm obstacles. 180s hard cap per run.</p>
+          </div>
+          <form id="loginForm" class="card">
+            <label>Username</label>
+            <input id="usernameInput" type="text" placeholder="arcade-fox" required>
+            <button type="submit" class="btn primary">Enter Arena</button>
+          </form>
+          <div class="floating" id="recentChampions"></div>
+        </section>
+
+        <section id="lobbyScreen" class="screen">
+          <div class="card translucent">
+            <div class="row between">
+              <div>
+                <h2 id="lobbyGreeting">Hey Runner</h2>
+                <p>Balance <strong id="lobbyBalance">0</strong> ARD · Hearts <strong>3</strong></p>
+              </div>
+              <button id="topupBtn" class="btn ghost">Top Up</button>
+            </div>
+            <div class="avatar-wrap">
+              <div class="avatar" id="avatarPreview"></div>
+              <div>
+                <p class="muted">Equipped skin</p>
+                <strong id="equippedSkin">ember</strong>
+              </div>
+            </div>
+          </div>
+          <div class="card grid-2">
+            <div>
+              <h3>Inventory</h3>
+              <div id="inventoryPreview" class="chips"></div>
+              <button id="inventoryBtn" class="btn tiny">Open</button>
+            </div>
+            <div>
+              <h3>Leaderboard</h3>
+              <div id="leaderboardTeaser"></div>
+              <button id="viewLeaderboard" class="btn tiny">View all</button>
+            </div>
+          </div>
+          <div class="card">
+            <h3>Balance ledger</h3>
+            <p class="muted">ARD is computed from ledger entries. Entry fee: 10 ARD.</p>
+          </div>
+          <div class="bottom-sticky">
+            <button id="continueBtn" class="btn primary">Continue</button>
+          </div>
+        </section>
+
+        <section id="modeScreen" class="screen">
+          <h2>Select mode</h2>
+          <div class="card mode-card">
+            <div>
+              <h3>Single</h3>
+              <p>Solo climb through 20 precision-built levels.</p>
+            </div>
+            <div class="fee">Entry {10 ARD}</div>
+            <button data-mode="single" class="btn primary wide startMode">Queue Solo</button>
+          </div>
+          <div class="card mode-card">
+            <div>
+              <h3>Multi (ghost)</h3>
+              <p>Race a recorded champion run. Prototype async ghost.</p>
+            </div>
+            <div class="fee">Entry {10 ARD}</div>
+            <button data-mode="multi" class="btn ghost wide startMode">Queue Ghost</button>
+          </div>
+          <div class="row between padded">
+            <div>Hearts: 3</div>
+            <div>Stake rolls with All-in.</div>
+          </div>
+          <div class="bottom-sticky">
+            <button class="btn" id="backToLobby">Back</button>
+          </div>
+        </section>
+
+        <section id="gameScreen" class="screen">
+          <div class="hud">
+            <div class="pill">Time <span id="timeLabel">0.00</span>s</div>
+            <div class="pill">Deaths <span id="deathLabel">0</span></div>
+            <div class="pill">Hearts <span id="heartsLabel">3</span></div>
+          </div>
+          <canvas id="gameCanvas" width="360" height="640"></canvas>
+          <div class="cta">
+            <button id="chargeBtn" class="btn primary wide">Hold to charge · Release to jump</button>
+          </div>
+        </section>
+
+        <section id="resultScreen" class="screen">
+          <div class="card">
+            <h2>Run Summary</h2>
+            <p id="resultPlacement" class="muted">Placement pending...</p>
+            <div class="stat-line"><span>Time</span><strong id="resultTime">0.00s</strong></div>
+            <div class="stat-line"><span>Deaths</span><strong id="resultDeaths">0</strong></div>
+            <div class="stat-line"><span>Level</span><strong id="resultLevel">1</strong></div>
+            <div class="stat-line"><span>Rating</span><strong id="resultRating">S</strong></div>
+          </div>
+          <div class="row gap">
+            <button id="cashoutBtn" class="btn primary">Cash out</button>
+            <button id="allinBtn" class="btn ghost">All-in</button>
+          </div>
+          <div class="row gap">
+            <button id="retryBtn" class="btn ghost">Retry</button>
+            <button id="backLobbyBtn" class="btn">Back to lobby</button>
+          </div>
+          <button id="shareBtn" class="btn tiny wide">Share run</button>
+        </section>
+
+        <section id="leaderboardScreen" class="screen">
+          <div class="row between">
+            <h2>Leaderboard</h2>
+            <button id="leaderboardClose" class="btn tiny">Close</button>
+          </div>
+          <div class="filters">
+            <select id="lbMode">
+              <option value="single">Single</option>
+              <option value="multi">Multi</option>
+            </select>
+            <select id="lbLevel"></select>
+            <select id="lbRange">
+              <option value="today">Today</option>
+              <option value="week">Week</option>
+              <option value="all" selected>All</option>
+            </select>
+          </div>
+          <div id="leaderboardTable" class="table"></div>
+          <div id="myRank" class="pill ghost"></div>
+        </section>
+      </div>
+    </div>
+    <div class="toast" id="toast"></div>
+  </div>
+  <script src="/static/game.js"></script>
+</body>
+</html>
