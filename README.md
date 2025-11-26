@@ -67,6 +67,8 @@ This repository now includes a self-contained FastAPI + canvas prototype for a m
 
 ### Run it locally
 
+Prerequisites: Python 3.10+ and a recent `pip`.
+
 1. Create a virtual environment and install dependencies:
 
    ```bash
@@ -75,13 +77,24 @@ This repository now includes a self-contained FastAPI + canvas prototype for a m
    pip install -r requirements.txt
    ```
 
-2. Start the FastAPI server (serves the API and the game UI):
+2. Initialize the SQLite database (one-time; creates tables and seed data):
+
+   ```bash
+   python -m fastapi_app.main --init-db
+   ```
+
+3. Start the FastAPI server (serves the API and the game UI):
 
    ```bash
    uvicorn fastapi_app.main:app --reload --port 8000
    ```
 
-3. Open http://localhost:8000/ in your browser. The UI is portrait-first and fully touch/keyboard friendly.
+4. Open http://localhost:8000/ in your browser. The UI is portrait-first and fully touch/keyboard friendly.
+
+**Optional dev conveniences**
+
+- To run a quick smoke-check of the Python files: `python -m compileall fastapi_app`
+- To reset the local demo data, delete `fastapi_app/game.db` and rerun step 2.
 
 ## License
 
